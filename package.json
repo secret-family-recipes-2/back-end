@@ -4,7 +4,15 @@
   "description": "Secret Recipe 2",
   "main": "index.js",
   "scripts": {
+    "server": "nodemon index.js",
+    "start": "node index.js",
+    "migrate": "knex migrate:latest",
+    "unmigrate": "knex migrate:rollback",
+    "seed": "knex seed:run",
     "test": "cross-env DB_ENV=testing jest --watch"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "repository": {
     "type": "git",
