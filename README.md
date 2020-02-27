@@ -38,3 +38,4 @@ https://secret-recipes-2.herokuapp.com/
  ```
 
  \*returns an object containing the username and a token
+ 
