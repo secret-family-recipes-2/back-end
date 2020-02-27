@@ -2,7 +2,7 @@ const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
 
-const authenticate = require('./../auth/authenticate-middleware.js');
+//const authenticate = require('./../auth/authenticate-middleware.js');
 const authRouter = require('./../routers/auth-router.js');
 const usersRouter = require('./../routers/users-router.js');
 //const recipesRouter = require('./../routers/recipes-router.js');
@@ -26,6 +26,6 @@ function errorHandler(err, req, res, next) {
     });
 }
 
-server.use(erroHandler)
+server.use(errorHandler)
 
 module.exports = server;
