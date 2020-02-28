@@ -5,7 +5,7 @@ const cors = require("cors");
 //const authenticate = require('./../auth/authenticate-middleware.js');
 const authRouter = require('./../routers/auth-router.js');
 const usersRouter = require('./../routers/users-router.js');
-//const recipesRouter = require('./../routers/recipes-router.js');
+const recipesRouter = require('./../routers/recipes-router.js');
 
 const server = express();
 
@@ -15,6 +15,7 @@ server.use(express.json());
 
 server.use("/api/auth", authRouter);
 server.use("/api/users", usersRouter);
+server.use("/api/recipes", recipesRouter);
 
 server.get("/", (req, res) => {
     res.status(200).json({ api: "Server is live" });

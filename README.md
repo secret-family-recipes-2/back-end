@@ -65,7 +65,7 @@ returns an object containing the created user data and a token
     "user_id": "number" //optional
 }
 ```
-\*returns an object showing the details of the newly created joke
+\*returns an object showing the details of the newly created recipe
 
 ## Editing a Recipe
 
