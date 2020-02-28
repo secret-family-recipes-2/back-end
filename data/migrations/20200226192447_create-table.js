@@ -12,7 +12,7 @@ exports.up = function (knex) {
             tbl.string("password", 128).notNullable();
         })
         .createTable("recipes", tbl => {
-            tbl.increments();
+            tbl.increments("id");
 
             tbl
                 .integer("user_id")
