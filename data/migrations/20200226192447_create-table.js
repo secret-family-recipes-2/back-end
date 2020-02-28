@@ -14,13 +14,21 @@ exports.up = function (knex) {
         .createTable("recipes", tbl => {
             tbl.increments();
 
+            tbl
+                .integer("user_id")
+                .unsigned()
+                .notNullable()
+                .references("users.id")
+                .onDelete("CASCADE")
+                .onUpdate("CASCADE");
+
             tbl.string("title", 255).notNullable();
 
             tbl.string("source", 255).notNullable();
 
-            tbl.string("ingredients", 255).notNullable();
+            tbl.text("ingredients").notNullable();
 
-            tbl.string("instructions", 255).notNullable();
+            tbl.text("instructions").notNullable();
 
             tbl.string("category", 255).notNullable();
 
@@ -29,18 +37,15 @@ exports.up = function (knex) {
                 .string("private", 128)
                 .notNullable()
                 .defaultTo("true");
-
-            tbl
-                .integer("user_id")
-                .unsigned()
-                .notNullable()
-                .references("users.id")
-                .onDelete("CASCADE")
-                .onUpdate("CASCADE");
         });
 };
 
 
 exports.down = function (knex) {
-    return knex.schema.dropTableIfExists("recipes").dropTableIfExists("users");
+
+    return (
+        knex.schema
+            .dropTableIfExists("recipes")
+            .dropTableIfExists("users")
+    )
 };
