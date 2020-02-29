@@ -12,15 +12,7 @@ exports.up = function (knex) {
             tbl.string("password", 128).notNullable();
         })
         .createTable("recipes", tbl => {
-            tbl.increments();
-
-            tbl
-                .integer("user_id")
-                .unsigned()
-                .notNullable()
-                .references("users.id")
-                .onDelete("CASCADE")
-                .onUpdate("CASCADE");
+            tbl.increments("id");
 
             tbl.string("title", 255).notNullable();
 
@@ -37,9 +29,17 @@ exports.up = function (knex) {
                 .string("private", 128)
                 .notNullable()
                 .defaultTo("true");
+
+            tbl
+                .integer("user_id")
+                .unsigned()
+                .notNullable()
+                .references("users.id")
+                .onDelete("CASCADE")
+                .onUpdate("CASCADE");
+
         });
 };
-
 
 exports.down = function (knex) {
 
