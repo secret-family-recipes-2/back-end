@@ -23,7 +23,7 @@ server.get("/", (req, res) => {
 
 function errorHandler(err, req, res, next) {
     res.status(err.status || 500).json({
-        message: err.message || 'Internal Server Error'
+        message: err.message || "Internal Server Error"
     });
 }
 
